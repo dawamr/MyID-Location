@@ -5,9 +5,47 @@
 * Version: 1.2.0
 */
 
+function changeImage(direction) {
+    var imageSources = [
+        "main_profil.jpg",
+        "lokasi_2.jpg",
+        "lokasi_3.jpg",
+        "lokasi_4.jpg"
+    ];
+
+    var el = document.getElementById("previewImage");
+    var endOfPath = el.src.match(/([^/]+)$/)[0];
+    var currentIndex = imageSources.indexOf(endOfPath);
+    currentIndex = (currentIndex < 0) ? 0 : currentIndex;
+
+    console.log("~", currentIndex)
+    const baseUrl = new URL(el.src).origin;
+    if (direction === "next") {
+        var nextIndex = currentIndex + 1;
+        if (nextIndex >= imageSources.length) {
+            nextIndex = 0;
+        }
+        console.log("~", nextIndex)
+        el.src = `${baseUrl}/img/${imageSources[nextIndex]}`
+    } else if (direction === "previous") {
+        var previousIndex = currentIndex - 1;
+        if (previousIndex < 0) {
+            previousIndex = imageSources.length - 1;
+        }
+        console.log("~", previousIndex)
+        el.src = `${baseUrl}/img/${imageSources[previousIndex]}`;
+    }
+}
+
+
 (function ($) {
     "use strict";
     // Portfolio subpage filters
+
+    $('.navigate').show();
+    setTimeout(function () {
+        $('.navigate').show();
+    }, 1000);
     function portfolio_init() {
         var portfolio_grid = $('.portfolio-grid'),
             portfolio_filter = $('.portfolio-filters');
