@@ -212,7 +212,7 @@
       const ipAddress = ip; // Replace with the IP address of the ISP provider
 
       // Make a request to the ipstack API
-      fetch(`http://api.ipstack.com/${ipAddress}?access_key=${apiKey}`)
+      fetch(`https://api.ipstack.com/${ipAddress}?access_key=${apiKey}`)
         .then(response => response.json())
         .then(data => {
           const latitude = data.latitude;
