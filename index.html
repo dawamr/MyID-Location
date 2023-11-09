@@ -119,29 +119,19 @@
                     <span class="lm-info-block-value"></span>
                     <span class="lm-info-block-text"></span>
                   </div>
-
+                  <!-- End of Contact Info -->
                 </div>
-                <!-- End of Contact Info -->
 
                 <!-- Contact Form -->
-                <div class="col-xs-12 col-sm-8">
-                  <iframe src="" frameborder="0" width="100%" height="380" style="border:0;" allowfullscreen=""
+                <div class="col-xs-12 col-sm-8" style="height: 400px; overflow: auto;">
+                  <iframe
+                    src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJT-Cx0cH3aS4Rr68UEtxDfVw&center=-6.1939608,106.75302&zoom=19&key=AIzaSyCL5_Dg_EFhZDjlwEwmii77wX3_LKsQ9aI"
+                    frameborder="0" style="width: 65vh;" height="380" style="border:0;" allowfullscreen=""
                     aria-hidden="false" loading="lazy" tabindex="0"></iframe>
-                  <!-- location of : Dawam MyID -->
-                  <!-- <iframe
-                    src="https://www.google.com/maps/embed/v1/directions?destination=place_id:ChIJT-Cx0cH3aS4Rr68UEtxDfVw&origin=&key=AIzaSyCL5_Dg_EFhZDjlwEwmii77wX3_LKsQ9aI"
-                    frameborder="0" width="100%" height="380" style="border:0;" allowfullscreen="" aria-hidden="false"
-                    loading="lazy" tabindex="0"></iframe> -->
-                  <!-- <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d495.81578790509076!2d106.75229682445949!3d-6.19407024363448!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f7c1d1b1e04f%3A0x5c7d43dc1214afaf!2sDawam%20MyID!5e0!3m2!1sen!2sid!4v1699414720514!5m2!1sen!2sid"
-                      width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                      referrerpolicy="no-referrer-when-downgrade"></iframe> -->
                 </div>
-                <!-- End of Contact Form -->
               </div>
-
+              <!-- End of Contact Form -->
             </div>
-
             <hr>
 
             <div class="title">
@@ -190,43 +180,6 @@
   <script src='js/masonry.pkgd.min.js'></script>
   <script src='js/owl.carousel.min.js'></script>
   <script src="js/jquery.magnific-popup.min.js"></script>
-
-  <script>
-    async function getIp() {
-      fetch('https://ipinfo.io?token=2f87a0e82e1efe')
-        .then(response => response.json())
-        .then(async (data) => {
-          const ipAddress = data.ip;
-          console.log('Client IP Address:', ipAddress);
-
-          await getLatLong(ipAddress)
-        })
-        .catch(error => {
-          console.error('Error fetching IP address:', error);
-        });
-    }
-
-    async function getLatLong(ip) {
-      // Replace 'YOUR_API_KEY' with your actual API key from ipstack
-      const apiKey = '382b30332421155f89a5b9f58cd4df26';
-      const ipAddress = ip; // Replace with the IP address of the ISP provider
-
-      // Make a request to the ipstack API
-      fetch(`https://api.ipstack.com/${ipAddress}?access_key=${apiKey}`)
-        .then(response => response.json())
-        .then(data => {
-          const latitude = data.latitude;
-          const longitude = data.longitude;
-          $('iframe').attr('src', `https://www.google.com/maps/embed/v1/directions?destination=place_id:ChIJT-Cx0cH3aS4Rr68UEtxDfVw&origin=${latitude},${longitude}&key=AIzaSyCL5_Dg_EFhZDjlwEwmii77wX3_LKsQ9aI`)
-        })
-        .catch(error => {
-          console.error('Error fetching IP geolocation data:', error);
-        });
-    }
-
-    $(document).ready(async function () {
-      await getIp();
-    })
 
 
   </script>
